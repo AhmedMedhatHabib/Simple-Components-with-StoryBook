@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { ThemeProvider } from 'styled-components';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+import { theme, SetGlobalStyle, Button } from './index';
+
+class Demo extends Component {
+  constructor(props) {
+    super(props);
+
+    SetGlobalStyle();
+  }
+
+  render() {
+    return (
+      <ThemeProvider theme={theme}>
+        <Button
+          color="primaryBlue"
+          disabled={false}
+          iconWidth={15}
+          isLoading={false}
+          onClick={() => {}}
+          primary
+          reverse={false}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+          Button
+        </Button>
+      </ThemeProvider>
+    );
+  }
 }
 
-export default App;
+export default Demo;
+
